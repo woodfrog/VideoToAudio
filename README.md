@@ -6,7 +6,7 @@ This is a simple video -> sound converter program.
 
 It uses OpenCV for video manipulation, SDL&SDL_Mixer for audio producing and finally Qt for making a simple UI.
 
-One interesting thing happen during the programming process:
+One interesting thing happened during the programming process:
 
 *  SDL and Qt has some conflicts on Windows. When I tried to use both of them, the linker complained about the ** duplication of WinMain **. The reason is SDL defines a main macro to replace main, like this:
 
