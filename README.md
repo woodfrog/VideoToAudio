@@ -23,10 +23,12 @@ However, sometimes we just **undef the macro of SDL** and our program works fine
 ## Some notes
 
 1. when creating a new thread using C++ thread in the standrard library, it should be like:
+
     ``` cpp
         std::thread my_thread(bar)  // if the function bar has no parameter
         std::thread my_thread(foo, ...) // if function foo has parameters, the arguments should be specified 
     ```
+    
     **When the function is a member function of a class, the first argument must be a pointer to an object of this Class(serve as the default argument this)**
 
 
