@@ -2,13 +2,13 @@
 
 ----------------
 
-This is a simple video -> sound converter program. 
+This project contains a video to sound converter program. 
 
-It uses OpenCV for video manipulation, SDL&SDL_Mixer for audio producing, and Qt for a simple UI implementation.
+The program uses OpenCV for video manipulation, SDL and SDL_Mixer for audio producing, and Qt for UI implementation.
 
-One interesting thing happened during the programming process:
+Something interesting happened during development:
 
-*  SDL and Qt have some conflicts on Windows. When trying to use both of them, the linker complained about the **duplication of WinMain** . The reason is that SDL defines a main macro to replace main, like this:
+*  SDL conflicts with Qt on Windows platform. In a situation of using SDL and Qt together, the linker complained about the **duplication of WinMain**. The reason is that SDL defines a main macro to replace main as follows:
 
 
     ``` C
@@ -16,13 +16,13 @@ One interesting thing happened during the programming process:
     extern C_LINKAGE int SDL_main(int argc, char *argv[]);
 
     ```
-SDL does some initialization to make its functionalities work properly in its main scope. There is an [official explanation](https://wiki.libsdl.org/FAQWindows#I_get_.22Undefined_reference_to_.27SDL_main.27.22_...). **The link error happens because Qt also uses WinMain to do its initial jobs.** 
-However, sometimes we just **undef the macro of SDL** and our program works fine too.
+SDL performs initialization to ensure functionalities work correctly in its main scope. There is an [official explanation](https://wiki.libsdl.org/FAQWindows#I_get_.22Undefined_reference_to_.27SDL_main.27.22_...) of this behaviour. **The link error happens because Qt also uses WinMain for initializing jobs.** 
+As a temporary work-around, the link error can be resolved if we **undefine the macro of SDL**.
 
 
 ## Notes
 
-1. when creating a new thread using C++ thread in the standrard library, it should be like:
+1. When creating a new thread using C++ thread in the standrard library, the template below should be followed:
 
     ``` cpp
         std::thread my_thread(bar)  // if the function bar has no parameter
