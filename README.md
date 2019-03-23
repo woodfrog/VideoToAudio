@@ -2,13 +2,13 @@
 
 ----------------
 
-This project contains a video to sound converter program. 
+This project contains a video-to-sound converter program. 
 
-The program uses OpenCV for video manipulation, SDL and SDL_Mixer for audio producing, and Qt for UI implementation.
+The program uses the OpenCV library for video manipulation, the SDL and SDL_Mixer library for audio producing. UI implementation is based on Qt.
 
 Something interesting happened during development:
 
-*  SDL conflicts with Qt on Windows platform. In a situation of using SDL and Qt together, the linker complained about the **duplication of WinMain**. The reason is that SDL defines a main macro to replace main as follows:
+*  SDL conflicts with Qt on Windows platform. If SDL and Qt are applied at the same time, the linker complained about the **duplication of WinMain**. The reason is SDL defines a main macro to replace main with the following:
 
 
     ``` C
