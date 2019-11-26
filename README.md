@@ -2,7 +2,9 @@
 
 ----------------
 
-This project contains a video-to-sound converter program. 
+This project is a video-to-sound converter application, aiming to help vision disabled people to interpret video contents through sound.
+
+On launching this application, a UI is available to user to locate mp4 formatted videos on your computer, on selection of video, a corresponding converted audio will be played.
 
 The program uses the OpenCV library for video manipulation, the SDL and SDL_Mixer library for audio producing. UI implementation is based on Qt.
 
